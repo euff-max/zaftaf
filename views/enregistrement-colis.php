@@ -165,7 +165,41 @@
     </div>
 </div>
 
+<!-- Toast container pour les messages -->
+<div id="toast-root" class="fixed top-4 right-4 z-50 space-y-3"></div>
+
+<!-- Modal de statut amélioré -->
+<div id="status-modal" class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-gray-800/95 rounded-2xl p-6 max-w-md w-full mx-4 border border-cyan-500/30">
+        <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-check-circle text-green-400 text-2xl"></i>
+            </div>
+            <div>
+                <h3 id="status-message" class="text-white font-semibold text-lg"></h3>
+                <p id="status-details" class="text-gray-400 text-sm mt-1"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <style>
+/* Animation pour les toasts */
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+}
+
 .phone-dropdown::-webkit-scrollbar {
     width: 6px;
 }
